@@ -1,0 +1,9 @@
+name: Clean Commits
+description: Fail a pipeline if commits include WIP or fixup!
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: git log | grep WIP
+    - shell: bash
+      run: git log | grep fixup
