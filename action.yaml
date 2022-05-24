@@ -4,6 +4,6 @@ runs:
   using: "composite"
   steps:
     - shell: bash
-      run: git log | grep WIP
+      run: check-for-wip.sh
     - shell: bash
-      run: git log | grep fixup
+      run: check-for-fixup.sh
