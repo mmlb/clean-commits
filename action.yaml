@@ -7,7 +7,7 @@ runs:
       uses: actions/checkout@v3
 
     - shell: bash
-      run: $GITHUB_ACTION_PATH/check-for-wip.sh
+      run: ${{ github.action_path }}/check-for-wip.sh
 
     - shell: bash
-      run: $GITHUB_ACTION_PATH/check-for-fixup.sh
+      run: ${{ github.action_path }}/check-for-fixup.sh
