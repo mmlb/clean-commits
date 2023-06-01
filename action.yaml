@@ -1,13 +1,9 @@
 name: Clean Commits
-description: Fail a pipeline if commits include WIP or fixup!
+description: Fail a pipeline if commit message includes WIP, fixup! or other recognized dirty words.
 runs:
   using: "composite"
   steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
     - shell: bash
-      run: ${{ github.action_path }}/check-for-wip.sh
-
-    - shell: bash
-      run: ${{ github.action_path }}/check-for-fixup.sh
+      run: ${{ github.action_path }}/check-for-dirty.sh ${{github.event.pull_request.base.sha}}
